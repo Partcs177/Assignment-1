@@ -39,7 +39,7 @@ public class Customer {
 	private String custEmail;
 	
 	public String getCustEmail() {
-		return custEmail;
+		return custEmail;//
 	}
 	public void setCustEmail(String custEmail) {
 		this.custEmail = custEmail;
