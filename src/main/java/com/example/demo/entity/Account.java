@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -14,32 +16,36 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Account {
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NotNull
 	@NumberFormat(style = Style.NUMBER)
 	@Size(min=2, max=10)
-	Integer accountNo;
+	Integer custId;
+	String typeOfAccount;
 	@NotNull
 	@NumberFormat(style = Style.NUMBER)
 	@NotBlank
-	Integer amount;
-	String description;
-	public Integer getAccountNo() {
-		return accountNo;
+	@Min(500)
+	Integer initialDeposit;
+	public Integer getCustId() {
+		return custId;
 	}
-	public void setAccountNo(Integer accountNo) {
-		this.accountNo = accountNo;
+	public void setCustId(Integer custId) {
+		this.custId = custId;
 	}
-	public Integer getAmount() {
-		return amount;
+	public String getTypeOfAccount() {
+		return typeOfAccount;
 	}
-	public void setAmount(Integer amount) {
-		this.amount = amount;
+	public void setTypeOfAccount(String typeOfAccount) {
+		this.typeOfAccount = typeOfAccount;
 	}
-	public String getDescription() {
-		return description;
+	public Integer getInitialDeposit() {
+		return initialDeposit;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setInitialDeposit(Integer initialDeposit) {
+		this.initialDeposit = initialDeposit;
 	}
+	
+	
 }

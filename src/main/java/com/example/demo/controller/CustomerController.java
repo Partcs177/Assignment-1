@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +22,9 @@ import com.example.demo.service.CustomerService;
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
-
-	@PostMapping("/user") // create
+	@PostMapping("/{id}customer") // create
 	@ResponseStatus(code = HttpStatus.CREATED)
-	void createCustomer(@RequestBody Customer customer) {
+	void createCustomer(@RequestBody @Valid Customer customer, @PathVariable("id") Integer id) {
 		customerService.saveCustomer(customer);
 	}
 }

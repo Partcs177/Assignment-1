@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -15,6 +16,7 @@ import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Customer {
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@NotNull
 	@NotBlank
