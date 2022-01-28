@@ -22,7 +22,7 @@ public class AccountController {
 		AccountService accountService;
 		@PostMapping("/account") // create
 		@ResponseStatus(code = HttpStatus.CREATED)
-		public void createAccount(@PathVariable @Valid Account account){
+		public void createAccount(@RequestBody Account account){
 			accountService.saveAccount(account);
 		}
 		

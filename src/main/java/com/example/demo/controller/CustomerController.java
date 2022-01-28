@@ -17,7 +17,7 @@ import com.example.demo.service.CustomerService;
 
 @RestController
 @RequestMapping("/api/customer")
-public class UserController {
+public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 
